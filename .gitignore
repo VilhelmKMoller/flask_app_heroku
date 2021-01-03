@@ -1,0 +1,8 @@
+# this is all the files that are ignored by git, so not uploaded to git
+# when we push things to git.
+
+# DS_Store is something that is added to each fil in a mac.
+.DS_Store
+__pycache__/
+# *.pyc is all the compiled python files.
+*.pyc
