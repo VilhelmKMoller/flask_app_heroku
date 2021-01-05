@@ -9,7 +9,7 @@ from resources.user import UserRegister
 # import Items classes from resource package:
 from resources.item import Item, ItemList
 # import the db file
-from db import db
+#from db import db
 # improt store from resurces
 from resources.store import Store, StoreList
 
@@ -21,11 +21,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICIATIONS'] = False
 # this is the secret code to decrypt your passwords:
 app.secret_key = "vilhelm"
 api = Api(app)
-
-# creats the data.db file, if it has not be created allready
-@app.before_first_request
-def create_tables():
-    db.create_all()
 
 
 jwt = JWT(app, authenticate, identity) #/auth (authenticate user)
