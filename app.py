@@ -1,3 +1,6 @@
+# import operation system for Heroku
+import os
+
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -16,7 +19,9 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 
 # name of data base and data file that we use:
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+# os.environ.get('DATABASE_URL': Allows us to access the database through Heroku.
+# 'sqlite:///data.db'): Allows us to access the server localy as be have done earlier.
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICIATIONS'] = False
 # this is the secret code to decrypt your passwords:
 app.secret_key = "vilhelm"
